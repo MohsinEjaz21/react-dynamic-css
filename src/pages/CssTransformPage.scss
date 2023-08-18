@@ -12,6 +12,11 @@
   --header-height: 85px;
 }
 
+#finalContent,
+.left-section--content--textarea {
+  font-family: "JetBrains Mono", monospace;
+}
+
 .action-btns {
   display: flex;
   justify-content: space-between;
@@ -19,11 +24,7 @@
   gap: 10px;
 }
 
-.left-section {
-}
-
 .container {
-  /* overflow: hidden; */
   height: 100%;
   display: grid;
   grid-template-columns: repeat(2, 50%);
