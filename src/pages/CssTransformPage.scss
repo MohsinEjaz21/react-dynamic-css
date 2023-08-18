@@ -9,6 +9,7 @@
   --color__6: #ff7300;
   --color__7: #00deff;
   --border: 1px solid var(--color__2);
+  --header-height: 85px;
 }
 
 .action-btns {
@@ -43,10 +44,11 @@
 
 .left-section,
 .right-section {
-  background-color: #282c34;
+  color: black;
+  background-color: white;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 120px 1fr;
+  grid-template-rows: var(--header-height, 85px) 1fr;
   /* gap: 10px 1px; */
   grid-auto-flow: row;
   grid-template-areas:
@@ -56,7 +58,6 @@
 
 .left-section--header,
 .right-section--header {
-  height: 85px;
   position: sticky;
   top: 0px;
   grid-area: header;
