@@ -2,7 +2,7 @@ import ButtonWidget from '@src/components/Widgets/ButtonWidget';
 import { CssNamedColors, DemoCssTemplate } from '@src/mock';
 import extractor from 'css-color-extractor';
 import Color from 'easy-color';
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import swal from 'sweetalert';
 import './CssTransformPage.scss';
 
@@ -173,13 +173,24 @@ export const CssTransformPage = () => {
 }
 
 function InputCssJsx(props) {
+
+  const inputCssRef = useRef(null);
+
+  useEffect(() => {
+    console.log('inputCss', props.inputCss);
+    if (inputCssRef.current) {
+      inputCssRef.current.innerText = props.inputCss;
+    }
+    // inputCssRef.current.innerHtml
+  }, [props.inputCss]);
+
   return (
 
     <div className="left-section gradient-box">
       <div className="left-section--header" >
         <h1 className="heading-primary gradient_animated_text">Enter Your CSS</h1>
         <div className="action-btns">
-          <ButtonWidget onClick={props.fakeTemplateChange}>
+          <ButtonWidget onClick={props.fakeTemplateChange} >
             Use Fake CSS
           </ButtonWidget>
           <ButtonWidget onClick={() => props.setInputCss('/* Paste Your Css */')}>
@@ -189,9 +200,10 @@ function InputCssJsx(props) {
       </div>
       <div className="left-section--content" >
         <div className="left-section--content--textarea" contentEditable="true"
+          ref={inputCssRef}
           onBlur={e => props.setInputCss(e.target.innerText)}
-            suppressContentEditableWarning={true}
-          />
+          suppressContentEditableWarning={true}
+        />
         {/* <textarea className="left-section--content--textarea" value={props.inputCss} onChange={e => props.setInputCss(e.target.value)} /> */}
       </div>
 
@@ -210,7 +222,7 @@ function OutputCssJsx(prop) {
           Dynamic CSS
         </h1>
         <div className="action-btns">
-          <ButtonWidget onClick={handleTransform} kind={'cancel'}>
+          <ButtonWidget onClick={handleTransform} kind={'warning'}>
             Make CSS Beutiful
           </ButtonWidget>
           <ButtonWidget onClick={copyToClipBoardOutputCss}>

@@ -1,7 +1,7 @@
 
 function ButtonWidget({
-  kind = "ok" as ("ok" | "cancel"),
-  onClick = () => {},
+  kind = "ok" as ("ok" | "cancel" | "submit"),
+  onClick = () => { },
   children
 }) {
   return (
