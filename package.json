@@ -1,0 +1,59 @@
+{
+  "name": "inventory-manage-console",
+  "private": true,
+  "version": "1.0.0-alpha",
+  "scripts": {
+    "local-build": "vite build && vite preview",
+    "test": "vitest",
+    "dev": "vite",
+    "build": "vite build",
+    "test-run": "vitest run",
+    "coverage": "vitest run --coverage",
+    "preview": "vite preview",
+    "check-code": "npm run prettier && npm run lint",
+    "pre-commit": "npm run test-run && npm run check-code",
+    "lint": "npx eslint --ext .js,.ts,.jsx,.tsx src",
+    "prettier": "prettier --write ./src",
+    "prepare": "npx husky install",
+    "ci": "npm ci --legacy-peer-deps"
+  },
+  "engines": {
+    "node": ">= 18.x"
+  },
+  "dependencies": {
+    "@legendapp/state": "^1.9.0",
+    "@supabase/supabase-js": "^2.32.0",
+    "@types/react-transition-group": "^4.4.6",
+    "axios": "^1.3.5",
+    "classnames": "^2.3.2",
+    "css-color-extractor": "^1.1.4",
+    "easy-color": "^1.0.4",
+    "framer-motion": "^10.15.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.13.0",
+    "react-router-dom": "^6.13.0",
+    "react-transition-group": "^4.4.5",
+    "sweetalert": "^2.1.2",
+    "swr": "^2.2.1",
+    "vite-plugin-svgr": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.13",
+    "@types/react-dom": "^18.2.6",
+    "@vitejs/plugin-react": "^4.0.1",
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "lint-staged": "^13.2.2",
+    "sass": "^1.63.4",
+    "vite": "^4.2.0",
+    "vite-plugin-chunk-split": "^0.4.7",
+    "vite-plugin-pages": "^0.31.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  }
+}

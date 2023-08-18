@@ -1,0 +1,150 @@
+:root {
+  --color__1: rgba(255, 255, 255, 1);
+  /* --color__2: rgb(65, 105, 224); */
+  --color__2: #1b1b1b;
+
+  --color__3: #272c35;
+  --color__4: rgb(57, 57, 57);
+  --color__5: #ff0080;
+  --color__6: #ff7300;
+  --color__7: #00deff;
+  --border: 1px solid var(--color__7);
+}
+
+#__next {
+  height: calc(100% - 20px) !important;
+}
+
+/* ::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+} */
+
+pre {
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.action-btns{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.left-section,
+.right-section {
+  border: var(--border);
+}
+
+.container {
+  /* overflow: hidden; */
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: 1fr;
+  gap: 8px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "left-section right-section";
+}
+
+.left-section {
+  grid-area: left-section;
+}
+
+.right-section {
+  grid-area: right-section;
+}
+
+.left-section,
+.right-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 120px 1fr;
+  /* gap: 10px 1px; */
+  grid-auto-flow: row;
+  grid-template-areas:
+    "header"
+    "content";
+}
+
+.left-section--header,
+.right-section--header {
+  position: sticky;
+  top: 0px;
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+  border-bottom: var(--border);
+  background-color: var(--color__2);
+}
+
+.left-section--content,
+.right-section--content {
+  padding-left: 16px;
+  overflow: hidden;
+  grid-area: content;
+}
+
+.right-section--content {
+  padding: 14px 16px;
+}
+
+.left-section--content--textarea {
+  height: 100%;
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--color__1);
+}
+
+/* Gradient text */
+
+.gradient_animated_text {
+  background-image: linear-gradient(90deg, #00deff 0%, #ff0080 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 360% 360%;
+  animation: gradient-animation 12s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-box {
+  position: relative;
+  border-top: 3px solid #00deff;
+}
+
+.gradient-box:before,
+.gradient-box:after {
+  content: "";
+  position: absolute;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#00deff), to(#fc00ff));
+  top: -3px;
+  bottom: -3px;
+  width: 3px;
+}
+
+.gradient-box:before {
+  left: -3px;
+}
+
+.gradient-box.right-section:after {
+  right: -3px;
+}
