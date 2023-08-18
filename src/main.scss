@@ -1,5 +1,5 @@
 :root {
-  --content-height: calc(100vh - 90px);
+  --content-height: calc(100vh - 100px);
   --primary-color: #cf649a;
 }
 
@@ -17,9 +17,8 @@
     width: 75px;
   }
   &__content {
-    color: #fff;
+    // color: #fff;
     margin: 0 auto 50px;
-    // background: #fff;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     width: 98%;
     border-radius: 4px;
