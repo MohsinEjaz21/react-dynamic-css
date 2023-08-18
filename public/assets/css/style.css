@@ -74,11 +74,11 @@ h4 {
 .btn__ok:hover {
   background: #0a7d61;
 }
-.btn__submit {
+.btn__warning {
   background: #ab131c;
   color: #fff;
 }
-.btn__submit:hover {
+.btn__warning:hover {
   background: #880c14;
 }
 .btn__cancel {
